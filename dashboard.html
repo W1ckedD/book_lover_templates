@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="dist/scrollbar.css" />
+    <link rel="stylesheet" href="dist/style.css" />
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="dist/main.js" defer></script>
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <!-- App -->
+    <div id="app">
+      <!-- Sidebar -->
+      <nav
+        class="transition-all -translate-x-24 md:translate-x-0 flex bg-primary fixed h-full w-24 rounded-r-lg flex-col items-center justify-between py-12"
+        :class="{'translate-x-0': showSidebar}"
+      >
+        <div>
+          <button class="block md:hidden p-2 m-2" @click="toggleSidebar">
+            <i class="bx bx-menu text-xl"></i>
+          </button>
+          <a href="" class="text-antiquewhite" style="color: red">
+            <img src="dist/img/logo.svg" class="w-12" alt="" />
+          </a>
+        </div>
+        <ul>
+          <li class="my-8">
+            <a
+              href=""
+              class="p-2 rounded-lg bg-white text-primary font-bold text-2xl hover:bg-white hover:text-primary"
+            >
+              <i class="bx bx-star"></i>
+            </a>
+          </li>
+          <li class="my-8">
+            <a
+              href=""
+              class="p-2 rounded-lg bg-primary text-white font-bold text-2xl hover:bg-white hover:text-primary"
+            >
+              <i class="bx bx-heart"></i>
+            </a>
+          </li>
+          <li class="my-8">
+            <a
+              href=""
+              class="p-2 rounded-lg bg-primary text-white font-bold text-2xl hover:bg-white hover:text-primary"
+            >
+              <i class="bx bx-calendar"></i>
+            </a>
+          </li>
+          <li class="my-8">
+            <a
+              href=""
+              class="p-2 rounded-lg bg-primary text-white font-bold text-2xl hover:bg-white hover:text-primary"
+            >
+              <i class="bx bx-message-dots"></i>
+            </a>
+          </li>
+          <li class="my-8">
+            <a
+              href=""
+              class="p-2 rounded-lg bg-primary text-white font-bold text-2xl hover:bg-white hover:text-primary"
+            >
+              <i class="bx bx-bookmarks"></i>
+            </a>
+          </li>
+        </ul>
+        <form action="">
+          <button type="submit">
+            <i
+              class="bx bx-log-out text-white text-2xl hover:bg-white hover:text-primary p-2 rounded-lg"
+            ></i>
+          </button>
+        </form>
+      </nav>
+      <!-- Main -->
+      <section class="bg-snow md:pl-28">
+        <!-- Navbar -->
+        <nav
+          class="flex items-center bg-snow justify-between py-2 px-2 md:px-8 fixed w-full md:pr-32"
+        >
+          <!-- Search -->
+          <button class="block md:hidden p-2 m-2" @click="toggleSidebar">
+            <i class="bx bx-menu text-xl"></i>
+          </button>
+          <form action="" class="flex items-center grow">
+            <button class="rounded-md bg-white p-2">
+              <i class="bx bx-search text-primary text-xl"></i>
+            </button>
+            <input
+              type="search"
+              name="search"
+              placeholder="Search..."
+              class="grow p-2 m-2 drop-shadow-sm rounded-md outline-0"
+            />
+          </form>
+
+          <!-- Actions -->
+          <div class="hidden md:flex items-center">
+            <a href="" class="text-2xl text-secondary mx-2">
+              <i class="bx bx-cog"></i>
+            </a>
+            <a href="" class="text-2xl text-secondary mx-2">
+              <i class="bx bx-bell"></i>
+            </a>
+            <!-- Profile -->
+            <h5 class="mx-4">W1ckedD</h5>
+            <a href="">
+              <img
+                src="dist/img/profile.jfif"
+                alt=""
+                class="rounded-full w-10 drop-shadow-md"
+              />
+            </a>
+          </div>
+          <button class="block md:hidden p-2 m-2">
+            <i class="bx bx-dots-horizontal-rounded text-xl"></i>
+          </button>
+        </nav>
+        <!-- Content -->
+        <section class="pt-20">
+          <div class="flex justify-between px-8">
+            <h3 class="text-2xl text-secondary font-bold">My Books</h3>
+            <a href="" class="text-secondary flex items-center">
+              More <i class="bx bx-right-arrow-alt text-2xl"></i>
+            </a>
+          </div>
+
+          <!-- Book Slider -->
+          <div class="flex items-center justify-between my-4 p-4 overflow-auto">
+            <!-- Book -->
+            <a href="" class="min-w-fit">
+              <div class="p-8 bg-lightblue rounded-lg flex items-center mx-4">
+                <img
+                  src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1507306706i/36364359.jpg"
+                  alt=""
+                  class="rounded-lg h-36"
+                />
+                <div class="flex flex-col items-start ml-4 justify-between">
+                  <h2 class="font-bold text-midnightblue mb-4">
+                    Explorations Colony
+                  </h2>
+                  <h3 class="text-cadetblue">Nathan Hystad</h3>
+                  <h4 class="text-cadetblue">Fantasy</h4>
+                  <div class="flex grow mt-4">
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bx-star text-white"></i>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <!-- Book -->
+            <a href="" class="min-w-fit">
+              <div class="p-8 bg-lavender rounded-lg flex items-center mx-4">
+                <img
+                  src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1593013000i/53288434.jpg"
+                  alt=""
+                  class="rounded-lg h-36"
+                />
+                <div
+                  class="flex flex-col items-start ml-4 justify-between max-w-xs"
+                >
+                  <h2 class="font-bold text-midnightblue mb-4">Lost Alchemy</h2>
+                  <h3 class="text-cadetblue">Sarah Penner</h3>
+                  <h4 class="text-cadetblue">Fiction</h4>
+                  <div class="flex grow mt-4">
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bx-star text-white"></i>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="min-w-fit">
+              <!-- Book -->
+              <div class="p-8 bg-powderblue rounded-lg flex items-center mx-4">
+                <img
+                  src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1628699768i/58505877.jpg"
+                  alt=""
+                  class="rounded-lg h-36"
+                />
+                <div
+                  class="flex flex-col items-start ml-4 justify-between max-w-xs"
+                >
+                  <h2 class="font-bold text-midnightblue mb-4">Run Rose Run</h2>
+                  <h3 class="text-cadetblue">James Patterson</h3>
+                  <h4 class="text-cadetblue">Mystery</h4>
+                  <div class="flex grow mt-4">
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bx-star text-white"></i>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="" class="min-w-fit">
+              <!-- Book -->
+              <div
+                class="p-8 bg-antiquewhite rounded-lg flex items-center mx-4"
+              >
+                <img
+                  src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1631453795i/58977917.jpg"
+                  alt=""
+                  class="rounded-lg h-36"
+                />
+                <div
+                  class="flex flex-col items-start ml-4 justify-between max-w-xs"
+                >
+                  <h2 class="font-bold text-coral mb-4">Lucky</h2>
+                  <h3 class="text-cadetblue">Marissa Stapley</h3>
+                  <h4 class="text-cadetblue">Thriller</h4>
+                  <div class="flex grow mt-4">
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bxs-star text-white"></i>
+                    <i class="bx bx-star text-white"></i>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Authors and Books list -->
+          <div class="flex flex-col md:flex-row p-4 m-4">
+            <div class="flex flex-col rounded-lg bg-snow md:p-4 md:mr-4 grow mt-16 md:mt-0">
+              <div class="flex items-center justify-between">
+                <h4 class="text-secondary text-md font-bold">
+                  Recomended Authors
+                </h4>
+                <a href="" class="text-secondary flex items-center">
+                  More <i class="bx bx-right-arrow-alt text-2xl"></i>
+                </a>
+              </div>
+              <div class="overflow-auto max-h-64">
+                <!-- Author -->
+                <div
+                  class="flex items-center justify-between px-4 p-2 bg-white rounded-lg my-2"
+                >
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFNn6FcqJgnTCBDjX9vK_qRnle-dHO1Jp7uEEqISfNOm8bbjoW"
+                    alt=""
+                    class="h-16 rounded-lg w-16 object-cover"
+                  />
+                  <h3 class="text-secondary font-bold text-lg grow ml-4">
+                    Stephen King
+                  </h3>
+                  <a
+                    href=""
+                    class="text-primary font-bold text-xl p-2 rounded-lg hover:bg-primary hover:text-white"
+                    ><i class="bx bx-book"></i
+                  ></a>
+                </div>
+
+                <!-- Author -->
+                <div
+                  class="flex items-center justify-between px-4 p-2 bg-white rounded-lg my-2"
+                >
+                  <img
+                    src="https://images.gr-assets.com/authors/1550638161p5/556546.jpg"
+                    alt=""
+                    class="h-16 rounded-lg w-16 object-cover"
+                  />
+                  <h3 class="text-secondary font-bold text-lg grow ml-4">
+                    Jane Harper
+                  </h3>
+                  <a
+                    href=""
+                    class="text-primary font-bold text-xl p-2 rounded-lg hover:bg-primary hover:text-white"
+                    ><i class="bx bx-book"></i
+                  ></a>
+                </div>
+
+                <!-- Author -->
+                <div
+                  class="flex items-center justify-between px-4 p-2 bg-white rounded-lg my-2"
+                >
+                  <img
+                    src="data:image/jpeg;base64,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"
+                    alt=""
+                    class="h-16 rounded-lg w-16 object-cover"
+                  />
+                  <h3 class="text-secondary font-bold text-lg grow ml-4">
+                    Andre Dubus III
+                  </h3>
+                  <a
+                    href=""
+                    class="text-primary font-bold text-xl p-2 rounded-lg hover:bg-primary hover:text-white"
+                    ><i class="bx bx-book"></i
+                  ></a>
+                </div>
+
+                <!-- Author -->
+                <div
+                  class="flex items-center justify-between px-4 p-2 bg-white rounded-lg my-2"
+                >
+                  <img
+                    src="https://images.gr-assets.com/authors/1589991473p5/123715.jpg"
+                    alt=""
+                    class="h-16 rounded-lg w-16 object-cover"
+                  />
+                  <h3 class="text-secondary font-bold text-lg grow ml-4">
+                    Agatha Christie
+                  </h3>
+                  <a
+                    href=""
+                    class="text-primary font-bold text-xl p-2 rounded-lg hover:bg-primary hover:text-white"
+                    ><i class="bx bx-book"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <!-- Books -->
+            <div class="flex flex-col rounded-lg bg-snow md:p-4 md:ml-4 grow mt-16 md:mt-0">
+              <div class="flex items-center justify-between">
+                <h4 class="text-secondary text-md font-bold">
+                  Continue Reading
+                </h4>
+                <a href="" class="text-secondary flex items-center">
+                  More <i class="bx bx-right-arrow-alt text-2xl"></i>
+                </a>
+              </div>
+              <div class="overflow-auto max-h-64">
+                <!-- Book Item -->
+                <div
+                  class="flex items-center justify-between px-4 p-2 bg-white rounded-lg my-2"
+                >
+                  <img
+                    src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1456113132i/27824826.jpg"
+                    alt=""
+                    class="h-16 rounded-lg"
+                  />
+                  <div class="text-md grow ml-4">
+                    <h3 class="text-secondary font-bold">The Dry</h3>
+                    <h4 class="text-secondary text-sm">Jane Harper</h4>
+                    <span class="text-gray text-sm">120/336</span>
+                    <div
+                      class="w-full bg-gray rounded-full h-1.5 dark:bg-gray-700"
+                    >
+                      <div
+                        class="bg-primary h-1.5 rounded-full"
+                        style="width: 36%"
+                      ></div>
+                    </div>
+                  </div>
+                  <a
+                    href=""
+                    class="text-primary font-bold text-xl p-2 rounded-lg hover:bg-primary hover:text-white"
+                    ><i class="bx bx-edit"></i
+                  ></a>
+                </div>
+
+                <!-- Book Item -->
+                <div
+                  class="flex items-center justify-between px-4 p-2 bg-white rounded-lg my-2"
+                >
+                  <img
+                    src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1327876792i/10644930.jpg"
+                    alt=""
+                    class="h-16 rounded-lg"
+                  />
+                  <div class="text-md grow ml-4">
+                    <h3 class="text-secondary font-bold">11/22/63</h3>
+                    <h4 class="text-secondary text-sm">Stephen King</h4>
+                    <span class="text-gray text-sm">800/849</span>
+                    <div
+                      class="w-full bg-gray rounded-full h-1.5 dark:bg-gray-700"
+                    >
+                      <div
+                        class="bg-primary h-1.5 rounded-full"
+                        style="width: 94%"
+                      ></div>
+                    </div>
+                  </div>
+                  <a
+                    href=""
+                    class="text-primary font-bold text-xl p-2 rounded-lg hover:bg-primary hover:text-white"
+                    ><i class="bx bx-edit"></i
+                  ></a>
+                </div>
+
+                <!-- Book Item -->
+                <div
+                  class="flex items-center justify-between px-4 p-2 bg-white rounded-lg my-2"
+                >
+                  <img
+                    src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1529591917i/40603587.jpg"
+                    alt=""
+                    class="h-16 rounded-lg"
+                  />
+                  <div class="text-md grow ml-4">
+                    <h3 class="text-secondary font-bold">The Last Wish</h3>
+                    <h4 class="text-secondary text-sm">Andrzej Sapkowski</h4>
+                    <span class="text-gray text-sm">145/359</span>
+                    <div
+                      class="w-full bg-gray rounded-full h-1.5 dark:bg-gray-700"
+                    >
+                      <div
+                        class="bg-primary h-1.5 rounded-full"
+                        style="width: 40%"
+                      ></div>
+                    </div>
+                  </div>
+                  <a
+                    href=""
+                    class="text-primary font-bold text-xl p-2 rounded-lg hover:bg-primary hover:text-white"
+                    ><i class="bx bx-edit"></i
+                  ></a>
+                </div>
+
+                <!-- Book Item -->
+                <div
+                  class="flex items-center justify-between px-4 p-2 bg-white rounded-lg my-2"
+                >
+                  <img
+                    src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1638425885i/16299.jpg"
+                    alt=""
+                    class="h-16 rounded-lg"
+                  />
+                  <div class="text-md grow ml-4">
+                    <h3 class="text-secondary font-bold">
+                      And Then There Were None
+                    </h3>
+                    <h4 class="text-secondary text-sm">Agatha Christie</h4>
+                    <span class="text-gray text-sm">6/264</span>
+                    <div
+                      class="w-full bg-gray rounded-full h-1.5 dark:bg-gray-700"
+                    >
+                      <div
+                        class="bg-primary h-1.5 rounded-full"
+                        style="width: 1%"
+                      ></div>
+                    </div>
+                  </div>
+                  <a
+                    href=""
+                    class="text-primary font-bold text-xl p-2 rounded-lg hover:bg-primary hover:text-white"
+                    ><i class="bx bx-edit"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="flex flex-col rounded-lg bg-snow p-4 md:ml-4 mt-16 md:mt-0">
+              <a href="" class="bg-white flex rounded-lg p-2 my-2">
+                <i
+                  class="bx bxs-book-heart text-mediumpurple bg-lavender p-2 rounded-full p-2 text-2xl mr-4 rounded-lg"
+                >
+                </i>
+                <div class="flex flex-col justify-center">
+                  <p class="text-secondary font-bold">94</p>
+                  <p class="text-secondary text-xs">Want to Read</p>
+                </div>
+              </a>
+              <a href="" class="bg-white flex rounded-lg p-2 my-2">
+                <i
+                  class="bx bxs-book-open text-turquoise bg-honeydew p-2 rounded-full p-2 text-2xl mr-4 rounded-lg"
+                >
+                </i>
+                <div class="flex flex-col justify-center">
+                  <p class="text-secondary font-bold">12</p>
+                  <p class="text-secondary text-xs">Read</p>
+                </div>
+              </a>
+              <a href="" class="bg-white flex rounded-lg p-2 my-2">
+                <i
+                  class="bx bxs-user text-coral bg-antiquewhite p-2 rounded-full p-2 text-2xl mr-4 rounded-lg"
+                >
+                </i>
+                <div class="flex flex-col justify-center">
+                  <p class="text-secondary font-bold">8</p>
+                  <p class="text-secondary text-xs">Authors</p>
+                </div>
+              </a>
+              <a href="" class="bg-white flex rounded-lg p-2 my-2">
+                <i
+                  class="bx bxs-note text-cadetblue bg-lightblue p-2 rounded-full p-2 text-2xl mr-4 rounded-lg"
+                >
+                </i>
+                <div class="flex flex-col justify-center">
+                  <p class="text-secondary font-bold">4594/10453</p>
+                  <p class="text-secondary text-xs">Pages</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
+      </section>
+    </div>
+  </body>
+</html>
